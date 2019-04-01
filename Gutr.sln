@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutr", "Gutr\Gutr.csproj", "{CB936AC6-B28E-4B19-B9A8-0742DDC760F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutr.WebMVC", "Gutr\Gutr.WebMVC.csproj", "{CB936AC6-B28E-4B19-B9A8-0742DDC760F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutr.Data", "Gutr.Data\Gutr.Data.csproj", "{C3E7843A-8490-4005-A263-E993CBFEA7C8}"
 EndProject

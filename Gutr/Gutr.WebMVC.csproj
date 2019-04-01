@@ -292,6 +292,24 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gutr.Contracts\Gutr.Contracts.csproj">
+      <Project>{bb6c150b-e4c0-431f-bc40-99e60389e76d}</Project>
+      <Name>Gutr.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gutr.Data\Gutr.Data.csproj">
+      <Project>{c3e7843a-8490-4005-a263-e993cbfea7c8}</Project>
+      <Name>Gutr.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gutr.Models\Gutr.Models.csproj">
+      <Project>{d55658e7-c0bd-44e7-a087-1b8f757fe3a5}</Project>
+      <Name>Gutr.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gutr.Services\Gutr.Services.csproj">
+      <Project>{7ceb53f6-ac8b-4850-b0f4-68a108dd419e}</Project>
+      <Name>Gutr.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
