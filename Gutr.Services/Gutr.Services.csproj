@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NoteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gutr.Data\Gutr.Data.csproj">
+      <Project>{c3e7843a-8490-4005-a263-e993cbfea7c8}</Project>
+      <Name>Gutr.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gutr.Models\Gutr.Models.csproj">
+      <Project>{d55658e7-c0bd-44e7-a087-1b8f757fe3a5}</Project>
+      <Name>Gutr.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
