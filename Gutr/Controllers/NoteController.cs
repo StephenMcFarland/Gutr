@@ -1,4 +1,6 @@
 ﻿using Gutr.Models;
+using Gutr.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +15,11 @@ namespace Gutr.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var model = new NoteListItem[0];
-            return View();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NoteService(userId);
+            var model = service.GetNotes();
+
+            return View(model);
         }
 
         // GET
@@ -29,9 +34,16 @@ namespace Gutr.Controllers
         {
             if (ModelState.IsValid)
             {
+            return View(model);
 
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NoteService(userId);
+
+            service.CreateNote(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
