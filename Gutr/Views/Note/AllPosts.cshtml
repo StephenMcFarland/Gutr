@@ -41,7 +41,18 @@
             <div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>
         </td>
         <td>
-        </td>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    
+                    <input type="submit" value="CreateFavorite" class="btn btn-default" />
+                </div>
+                </div>
+                }
+</td>
         @*This area is for editing your own posts*@
         @*<td>
             @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
