@@ -61,6 +61,7 @@ namespace Gutr.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                //string value;
                 var query =
                     ctx
                         .Notes
@@ -69,6 +70,8 @@ namespace Gutr.Services
                             e =>
                                 new NoteListItem
                                 {
+                                    //userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email,
+                                    userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0,5),
                                     NoteId = e.NoteId,
                                     Title = e.Title,
                                     CreatedUtc = e.CreatedUtc
