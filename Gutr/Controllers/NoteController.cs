@@ -15,8 +15,8 @@ namespace Gutr.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new NoteService(userId);
+            var service = CreateNoteService();
+
             var model = service.GetNotes();
 
             return View(model);
@@ -47,6 +47,13 @@ namespace Gutr.Controllers
             return View(model);
         }
 
+        private NoteService CreateNoteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new NoteService(userId);
+            return service;
+        }
+
         public ActionResult Details(int id)
         {
             var svc = CreateNoteService();
@@ -67,6 +74,13 @@ namespace Gutr.Controllers
                     Content = detail.Content
                 };
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, NoteEdit model)
+        {
+            return View();
         }
     }
 }
