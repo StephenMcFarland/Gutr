@@ -34,6 +34,8 @@ namespace Gutr.Data
 
         public DbSet<Note> Notes { get; set; }
 
+        public DbSet<Favorite> Favorites { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
