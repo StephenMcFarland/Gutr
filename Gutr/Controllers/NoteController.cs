@@ -22,6 +22,17 @@ namespace Gutr.Controllers
             return View(model);
         }
 
+        // GET: Note
+        [Authorize]
+        public ActionResult AllPosts()
+        {
+            var service = CreateNoteService();
+
+            var model = service.GetAllPosts();
+
+            return View(model);
+        }
+
         // GET
         public ActionResult Create()
         {
@@ -32,7 +43,7 @@ namespace Gutr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(NoteCreate model)
         {
-            if (ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateNoteService();
 

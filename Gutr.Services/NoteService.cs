@@ -57,7 +57,29 @@ namespace Gutr.Services
             }
         }
 
-        public NoteDetail GetNoteById(int id)
+        public IEnumerable<NoteListItem> GetAllPosts()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Notes
+                        .Where(e => e.NoteId > 0)
+                        .Select(
+                            e =>
+                                new NoteListItem
+                                {
+                                    NoteId = e.NoteId,
+                                    Title = e.Title,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public NoteDetail GetNoteById(int noteId)
         {
             using (var ctx = new ApplicationDbContext())
             {
