@@ -80,6 +80,24 @@ namespace Gutr.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, NoteEdit model)
         {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.NoteId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateNoteService();
+
+            if (service.UpdateNote(model))
+            {
+                TempData["SaveResult"] = "Your note was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+
             return View();
         }
     }
