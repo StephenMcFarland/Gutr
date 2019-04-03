@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Favorite.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\201904021333482_InitialCreate.cs" />
     <Compile Include="Migrations\201904021333482_InitialCreate.Designer.cs">

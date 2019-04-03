@@ -35,6 +35,25 @@ namespace Gutr.Services
             }
         }
 
+        public bool CreateFavorite(FavoriteCreate model)
+        {
+            var entity =
+                new Favorite()
+                {
+                    FavoriteBool = true
+                    //OwnerId = _userId,
+                    //Title = model.Title,
+                    //Content = model.Content,
+                    //CreatedUtc = DateTimeOffset.Now
+                };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Notes.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public IEnumerable<NoteListItem> GetNotes()
         {
             using (var ctx = new ApplicationDbContext())
