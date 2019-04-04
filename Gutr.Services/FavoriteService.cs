@@ -18,16 +18,16 @@ namespace Gutr.Services
         }
 
         //public bool UpdateNote(NoteEdit model)
-        public bool CreateFavorite(FavoriteEdit model)
+        public bool CreateFavorite(FavoriteCreate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Favorites
-                        .Single(e => e.Id == model.NoteId);// && e.OwnerId == _userId);
+                        .Single(e => e.Id == model.NoteId && e.OwnerId == _userId);
 
-                entity.FavoriteBool = model.Favoritebtn;
+                entity.FavoriteBool = model.FavoriteBtn;
                 //entity.Content = model.Content;
                 //entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
@@ -53,19 +53,19 @@ namespace Gutr.Services
         //    }
         //}
 
-        public bool DeleteFavorite(int noteId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+        //public bool DeleteFavorite(int noteId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .Notes
+        //                .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
 
-                ctx.Favorites.Remove(entity);
+        //        ctx.Favorites.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
-            }
-        }
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
     }
 }

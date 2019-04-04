@@ -74,11 +74,11 @@ namespace Gutr.Controllers
 
             if (service.CreateFavorite(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your favorite was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Favorite could not be created.");
 
             return View(model);
         }
