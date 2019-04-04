@@ -70,7 +70,7 @@ namespace Gutr.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateNoteService();
+            var service = CreateFavoriteService();
 
             if (service.CreateFavorite(model))
             {
