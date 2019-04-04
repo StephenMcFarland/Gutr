@@ -10,8 +10,8 @@ namespace Gutr.Data
     public class Favorite
     {
         
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public bool FavoriteBool { get; set; }
+        public virtual Note Note { get; set; }
     }
 }

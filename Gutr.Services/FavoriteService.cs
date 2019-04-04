@@ -17,41 +17,24 @@ namespace Gutr.Services
             _userId = userId;
         }
 
-        //public bool UpdateNote(NoteEdit model)
+      
         public bool CreateFavorite(FavoriteCreate model)
         {
+            var entity =
+                new Favorite()
+                {
+                    Id = _userId,
+                    FavoriteBool = model.FavoriteBtn,
+                    
+                    //CreatedUtc = DateTimeOffset.Now
+                };
+
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Favorites
-                        .Single(e => e.Id == model.NoteId && e.OwnerId == _userId);
-
-                entity.FavoriteBool = model.FavoriteBtn;
-                //entity.Content = model.Content;
-                //entity.ModifiedUtc = DateTimeOffset.UtcNow;
-
+                ctx.Favorites.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        //public bool CreateNote(NoteCreate model)
-        //{
-        //    var entity =
-        //        new Note()
-        //        {
-        //            OwnerId = _userId,
-        //            Title = model.Title,
-        //            Content = model.Content,
-        //            CreatedUtc = DateTimeOffset.Now
-        //        };
-
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        ctx.Notes.Add(entity);
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
 
         //public bool DeleteFavorite(int noteId)
         //{
