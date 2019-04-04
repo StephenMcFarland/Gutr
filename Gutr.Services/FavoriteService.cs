@@ -23,8 +23,10 @@ namespace Gutr.Services
             var entity =
                 new Favorite()
                 {
-                    Id = _userId,
-                    FavoriteBool = model.FavoriteBtn,
+                    OwnerId = _userId,
+                    //Favoritebool = true
+                    //NoteId = 'meh',//model.NoteId,
+                    //Note = "duh",//model.Note,
                     
                     //CreatedUtc = DateTimeOffset.Now
                 };

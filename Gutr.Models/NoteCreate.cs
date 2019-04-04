@@ -17,6 +17,8 @@ namespace Gutr.Models
         [MaxLength(8000)]
         public string Content { get; set; }
 
+        public int FavoriteId { get; set; }
+
         public override string ToString() => Title;
        
 
