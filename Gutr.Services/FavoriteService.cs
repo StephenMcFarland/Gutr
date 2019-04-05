@@ -24,8 +24,8 @@ namespace Gutr.Services
                 new Favorite()
                 {
                     OwnerId = _userId,
-                    //Favoritebool = true
-                    //NoteId = model.NoteId,
+                    FavoriteId = 33,
+                    //NoteId = 22//model.NoteId,
                     //Note = "duh",//model.Note,
                     
                     //CreatedUtc = DateTimeOffset.Now
