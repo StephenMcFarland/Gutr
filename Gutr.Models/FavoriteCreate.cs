@@ -9,8 +9,8 @@ namespace Gutr.Models
 {
     public class FavoriteCreate
     {
-        public NoteCreate Note { get; set; }
-        
-        //public int FavoriteId { get; set; }
+        //public NoteCreate Note { get; set; }
+
+        public int FavoriteId { get; set; }
     }
 }

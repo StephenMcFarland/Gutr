@@ -280,10 +280,10 @@
     <Content Include="Views\Note\Edit.cshtml" />
     <Content Include="Views\Note\Delete.cshtml" />
     <Content Include="Views\Note\AllPosts.cshtml" />
-    <Content Include="Views\Favorite\Favorites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Favorite\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
