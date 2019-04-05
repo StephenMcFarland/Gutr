@@ -1,4 +1,6 @@
 ﻿using Gutr.Models;
+using Gutr.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,23 +23,30 @@ namespace Gutr.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(FavoriteCreate model)
-        //{
-        //    if (!ModelState.IsValid) return View(model);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(FavoriteCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
-        //    //var service = CreateNoteService();
+            var service = CreateFavoriteService();
 
-        //    if (service.CreateNote(model))
-        //    {
-        //        TempData["SaveResult"] = "Your note was created.";
-        //        return RedirectToAction("Index");
-        //    };
+            if (service.CreateFavorite(model))
+            {
+                TempData["SaveResult"] = "Your note was created.";
+                return RedirectToAction("Index");
+            };
 
-        //    ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Note could not be created.");
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
+
+        private FavoriteService CreateFavoriteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoriteService(userId);
+            return service;
+        }
     }
 }

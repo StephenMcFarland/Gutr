@@ -64,31 +64,26 @@ namespace Gutr.Controllers
         //    return View();
         //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateFavorite(FavoriteCreate model)
-        {
-            if (!ModelState.IsValid) return View(model);
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateFavorite(FavoriteCreate model)
+        //{
+        //    if (!ModelState.IsValid) return View(model);
 
-            var service = CreateFavoriteService();
+        //    var service = CreateFavoriteService();
 
-            if (service.CreateFavorite(model))
-            {
-                TempData["SaveResult"] = "Your favorite was created.";
-                return RedirectToAction("Index");
-            };
+        //    if (service.CreateFavorite(model))
+        //    {
+        //        TempData["SaveResult"] = "Your favorite was created.";
+        //        return RedirectToAction("Index");
+        //    };
 
-            ModelState.AddModelError("", "Favorite could not be created.");
+        //    ModelState.AddModelError("", "Favorite could not be created.");
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        private FavoriteService CreateFavoriteService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FavoriteService(userId);
-            return service;
-        }
+       
 
         private NoteService CreateNoteService()
         {
