@@ -22,6 +22,17 @@ namespace Gutr.Controllers
             return View(model);
         }
 
+        // GET: Profile
+        //[Authorize]
+        //public ActionResult Profile()
+        //{
+        //    var service = CreateNoteService();
+
+        //    var model = service.GetProfile();
+
+        //    return View(model);
+        //}
+
         // GET: Note
         [Authorize]
         public ActionResult AllPosts()

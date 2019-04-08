@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Gutr.Data.Profile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Profile</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Name)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Summary)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Url)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<div>
+    <h2>@Html.ActionLink("Edit", "Edit", new { id = item.OwnerId })</h2>
+</div>
+    @*<tr>
+        <td>*@
+            <h1>Name:  </h1>
+            @Html.DisplayFor(modelItem => item.Name)
+        @*</td>
+        <td>*@
+            <h1>Bio:  </h1>
+            @Html.DisplayFor(modelItem => item.Summary)
+        @*</td>
+        <td>*@
+            <h1>My Favorite Website:  </h1>
+            <a href="@Html.DisplayFor(modelItem => item.Url)" target="blank">@Html.DisplayFor(modelItem => item.Url)</a>
+        @*</td>
+        <td>*@
+            @*@Html.ActionLink("Details", "Details", new { id=item.OwnerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OwnerId })*@
+        @*</td>
+    </tr>*@
+}
+
+@*</table>*@
