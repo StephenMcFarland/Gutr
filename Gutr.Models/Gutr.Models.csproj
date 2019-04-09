@@ -61,6 +61,7 @@
     <Compile Include="NoteDetail.cs" />
     <Compile Include="NoteEdit.cs" />
     <Compile Include="NoteListItem.cs" />
+    <Compile Include="ProfileDetail.cs" />
     <Compile Include="ProfileCreate.cs" />
     <Compile Include="ProfileEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

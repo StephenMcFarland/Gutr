@@ -49,6 +49,7 @@ namespace Gutr.Services
                                 {
                                     NoteId = e.NoteId,
                                     Title = e.Title,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -76,6 +77,7 @@ namespace Gutr.Services
                                     userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0,5),
                                     NoteId = e.NoteId,
                                     Title = e.Title,
+                                    IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -113,12 +115,14 @@ namespace Gutr.Services
                         .Notes
                         .Single(e => e.NoteId == model.NoteId && e.OwnerId == _userId);
 
-            entity.Title = model.Title;
-            entity.Content = model.Content;
-            entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.Title = model.Title;
+                entity.Content = model.Content;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.IsStarred = model.IsStarred;
 
-            return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1;
             }
+                
         }
 
         public bool DeleteNote(int noteId)

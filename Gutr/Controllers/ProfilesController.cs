@@ -5,8 +5,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.ApplicationServices;
 using System.Web.Mvc;
 using Gutr.Data;
+using Gutr.Services;
 using Microsoft.AspNet.Identity;
 
 namespace Gutr.Controllers
@@ -31,6 +33,12 @@ namespace Gutr.Controllers
                           select m;
    
             return View(profile.ToList());// db.Profiles.ToList());
+
+            //var service = CreateProfileService();
+
+            //var model = service.GetProfile();
+
+            //return View(model);
         }
 
         // GET: Profiles/Details/5
@@ -52,6 +60,13 @@ namespace Gutr.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        private ProfilesService CreateProfileService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProfilesService(userId);
+            return service;
         }
 
         // POST: Profiles/Create

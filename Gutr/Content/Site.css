@@ -29,3 +29,18 @@ textarea {
     font-size: 10px;
     font-weight: bolder;
 }
+
+.post-message{
+    background-color:antiquewhite;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 13px;
+}
+
+.post-wrapper{
+    background-color: rgb(182, 255, 0, 0.7);
+    border-radius: 14px;
+    margin: 6px;
+    padding: 10px;
+    max-width: 450px;
+}

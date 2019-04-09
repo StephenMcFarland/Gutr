@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="FavoriteService.cs" />
     <Compile Include="NoteService.cs" />
-    <Compile Include="ProfileService.cs" />
+    <Compile Include="ProfilesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

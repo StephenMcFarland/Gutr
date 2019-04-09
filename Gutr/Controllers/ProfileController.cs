@@ -11,10 +11,10 @@ namespace Gutr.Controllers
 {
     public class ProfileController : Controller
     {
-        private ProfileService CreateProfileService()
+        private ProfilesService CreateProfileService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ProfileService(userId);
+            var service = new ProfilesService(userId);
             return service;
         }
 
