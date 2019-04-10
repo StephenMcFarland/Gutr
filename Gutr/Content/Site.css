@@ -44,3 +44,8 @@ textarea {
     padding: 10px;
     max-width: 450px;
 }
+
+.img-gutters{
+    border-radius: 30px;
+    width: 30%;
+}

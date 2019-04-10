@@ -44,6 +44,17 @@ namespace Gutr.Controllers
             return View(model);
         }
 
+        // GET: Favorites
+        [Authorize]
+        public ActionResult Favorites()
+        {
+            var service = CreateNoteService();
+
+            var model = service.GetFavorites();
+
+            return View(model);
+        }
+
         // GET
         public ActionResult Create()
         {

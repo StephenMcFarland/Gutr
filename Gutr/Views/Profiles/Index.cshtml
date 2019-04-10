@@ -7,7 +7,19 @@
 <h2>Profile</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @{
+        foreach (var item in Model)
+        {
+            <div>test</div>
+            Html.DisplayFor(modelItem => item.Name);
+            //var myString = Html.DisplayFor(modelItem => item.Name);
+
+            @*if (String.IsNullOrEmpty(myString) == false)
+            {
+                @Html.ActionLink("Create New", "Create");
+        }*@
+            }
+    }
 </p>
 <table class="table">
     <tr>

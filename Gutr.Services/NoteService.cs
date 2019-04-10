@@ -19,6 +19,11 @@ namespace Gutr.Services
 
         public bool CreateNote(NoteCreate model)
         {
+            var checkHttp = model.Content.Substring(0, 8);
+            if (checkHttp != "https://")
+            {
+                model.Content = "https://" + model.Content;
+            }
             var entity =
                 new Note()
                 {
@@ -49,6 +54,7 @@ namespace Gutr.Services
                                 {
                                     NoteId = e.NoteId,
                                     Title = e.Title,
+                                    Content = e.Content,
                                     IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
@@ -77,6 +83,34 @@ namespace Gutr.Services
                                     userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0,5),
                                     NoteId = e.NoteId,
                                     Title = e.Title,
+                                    Content = e.Content,
+                                    IsStarred = e.IsStarred,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<NoteListItem> GetFavorites()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                //string value;
+                var query =
+                    ctx
+                        .Notes
+                        .Where(e => e.IsStarred == true)
+                        .Select(
+                            e =>
+                                new NoteListItem
+                                {
+                                    //userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email,
+                                    userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
+                                    NoteId = e.NoteId,
+                                    Title = e.Title,
+                                    Content = e.Content,
                                     IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
                                 }
