@@ -17,7 +17,7 @@ namespace Gutr.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
+
 
         // GET: Profiles
         public ActionResult Index()
@@ -28,11 +28,18 @@ namespace Gutr.Controllers
             //             where m.OwnerId == OwnerId
             //             select m;
             var profile = from m in db.Profiles
-                          //where m.Name == "name 2"
+                              //where m.Name == "name 2"
                           where m.OwnerId == _userId
                           select m;
-   
-            return View(profile.ToList());// db.Profiles.ToList());
+            //var ProfileStr = profile.ToList();
+
+            //if (ProfileStr == null)
+            //{
+            //    ViewBag.hasProfile = false;
+            //}
+            //else { ViewBag.hasProfile = ProfileStr; }// true; }
+
+            return View(profile);//.ToList());// db.Profiles.ToList());
 
             //var service = CreateProfileService();
 
@@ -42,19 +49,19 @@ namespace Gutr.Controllers
         }
 
         // GET: Profiles/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profile);
-        }
+        //public ActionResult Details(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Profile profile = db.Profiles.Find(id);
+        //    if (profile == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(profile);
+        //}
 
         // GET: Profiles/Create
         public ActionResult Create()
@@ -78,6 +85,11 @@ namespace Gutr.Controllers
         {
             if (ModelState.IsValid)
             {
+                var checkHttp = profile.Url.Substring(0, 8);
+                if (checkHttp != "https://")
+                {
+                    profile.Url = "https://" + profile.Url;
+                }
                 profile.OwnerId = Guid.Parse(User.Identity.GetUserId());
                 db.Profiles.Add(profile);
                 db.SaveChanges();
@@ -111,6 +123,11 @@ namespace Gutr.Controllers
         {
             if (ModelState.IsValid)
             {
+                var checkHttp = profile.Url.Substring(0, 8);
+                if (checkHttp != "https://")
+                {
+                    profile.Url = "https://" + profile.Url;
+                }
                 db.Entry(profile).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

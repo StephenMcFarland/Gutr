@@ -36,12 +36,18 @@
             @Html.DisplayFor(modelItem => item.NoteId)
         </td>*@
         <td><div class="post-wrapper">
-                <div><h3><a href="#">@Html.DisplayFor(modelItem => item.userEmail)</a> says:  </h3></div>
-    <div class="post-message">@Html.DisplayFor(modelItem => item.Title)
-        <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank">@Html.DisplayFor(modelItem => item.Content)</a>
-                        </div>
-    <div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>
-    @*@using (Html.BeginForm())
+    <div><h3><a href="#">@Html.DisplayFor(modelItem => item.userEmail)</a> says:  </h3></div>
+    <div class="post-message">
+        @Html.DisplayFor(modelItem => item.Title)
+    <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank">@Html.DisplayFor(modelItem => item.Content)</a>
+</div>
+<div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>
+<div class="noteid">@Html.DisplayFor(modelItem => item.NoteId)</div>
+                    
+@Html.ActionLink("Fav", "Favorite","Favorite")@*, new{ANoteId = item.NoteId})*@
+            
+
+@*@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 

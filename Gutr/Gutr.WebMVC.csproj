@@ -183,6 +183,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FavoriteController.cs" />
     <Compile Include="Controllers\WebAPI\FavoriteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -304,6 +305,7 @@
     <Content Include="Views\Profiles\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Starred.cshtml" />
     <Content Include="Views\Note\Favorites.cshtml" />
+    <Content Include="Views\Note\Favorite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

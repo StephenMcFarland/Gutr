@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Favorite.cs" />
     <Compile Include="FavoriteCreate.cs" />
     <Compile Include="FavoriteEdit.cs" />
     <Compile Include="FavoriteListItem.cs" />

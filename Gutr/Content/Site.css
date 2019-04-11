@@ -24,7 +24,9 @@ textarea {
     max-width: 280px;
 }
 
-
+.noteid{
+    float: right;
+}
 .ts {
     font-size: 10px;
     font-weight: bolder;

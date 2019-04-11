@@ -7,19 +7,20 @@
 <h2>Profile</h2>
 
 <p>
-    @{
-        foreach (var item in Model)
-        {
-            <div>test</div>
-            Html.DisplayFor(modelItem => item.Name);
+    @*{
+        //foreach (var item in Model)
+        //{
+           // <div>test</div>
+            //Html.DisplayFor(modelItem => item.Name);
             //var myString = Html.DisplayFor(modelItem => item.Name);
 
             @*if (String.IsNullOrEmpty(myString) == false)
-            {
-                @Html.ActionLink("Create New", "Create");
-        }*@
-            }
-    }
+                    {
+                        @Html.ActionLink("Create New", "Create");
+                }*@
+        @*//}
+   // }*@
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -35,28 +36,50 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<div>
-    <h2>@Html.ActionLink("Edit", "Edit", new { id = item.OwnerId })</h2>
-</div>
-    @*<tr>
-        <td>*@
-            <h4>Name:  </h4>
-            @Html.DisplayFor(modelItem => item.Name)
+    @foreach (var item in Model)
+    {
+        <div>
+            <h2>@Html.ActionLink("Edit", "Edit", new { id = item.OwnerId })</h2>
+        </div>
+        @*<tr>
+            <td>*@
+<h4>
+    Name: 
+    @Html.DisplayFor(modelItem => item.Name)
+</h4>
         @*</td>
-        <td>*@
-            <h4>Bio:  </h4>
-            @Html.DisplayFor(modelItem => item.Summary)
+            <td>*@
+<h4>
+    Bio:
+    @Html.DisplayFor(modelItem => item.Summary)
+</h4>
         @*</td>
-        <td>*@
-            <h4>My Favorite Website:  </h4>
-            <a href="@Html.DisplayFor(modelItem => item.Url)" target="blank">@Html.DisplayFor(modelItem => item.Url)</a>
+            <td>*@
+<h4>
+    My Favorite Website:
+    <a href="@Html.DisplayFor(modelItem => item.Url)" target="blank">@Html.DisplayFor(modelItem => item.Url)</a>
+</h4>
         @*</td>
-        <td>*@
-            @*@Html.ActionLink("Details", "Details", new { id=item.OwnerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OwnerId })*@
+            <td>*@
+        @*@Html.ActionLink("Details", "Details", new { id=item.OwnerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OwnerId })*@
         @*</td>
-    </tr>*@
-}
+            </tr>*@
+    }
 
-@*</table>*@
+    @*</table>*@
+      @{ 
+
+          //var myString = Html.DisplayFor(modelItem => item.Name).ToString();
+          //if (String.IsNullOrEmpty(myString) == false)
+          //if (myString.Length == 0 || myString == null)
+
+          //<div>@ViewBag.hasProfile</div>
+          //if (ViewBag.hasProfile == true)
+          //{
+            <div> @Html.ActionLink("Create New", "Create")</div>
+              }
+          @*}*@
+        @*<div>@myString </div>*@
+
+        @*<div> @Html.ActionLink("Create New", "Create")</div>*@
