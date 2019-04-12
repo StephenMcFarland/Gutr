@@ -26,50 +26,62 @@
         </button>
     </div>*@
 }
-<div class="post-wrapper">
     <table class="table">
-        @*<tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.NoteId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedUtc)
-                </th>
-                <th></th>
-            </tr>*@
+        @*<tr>*@
+        
+            @*
+            <th>
+                @Html.DisplayNameFor(model => model.NoteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th></th>
+        </tr>*@
 
-        @foreach (var item in Model)
-        {
-            @*<tr>*@
-        <div class="post-message">
-            @*<td>*@
-            @*@Html.DisplayFor(modelItem => item.NoteId)*@
-            <h3>@Html.DisplayFor(modelItem => item.userEmail)</h3>
-            @*</td>
-        <td>*@
-            @Html.DisplayFor(modelItem => item.Title)
-            <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
-            @*</td>
-        <td>*@
-            @*@Html.DisplayFor(modelItem => item.IsStarred)@*, new { Id = item.NoteId })*@
-            @*</td>
-        <td>*@
-            <div class="ts"> @Html.DisplayFor(modelItem => item.CreatedUtc)</div>
-            @*</td>
-        <td>*@
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })*@
-        </div>
-                @*</td>
-            </tr>*@
-        }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<tr>*@
+                    @*<td>*@
+                    @*@Html.DisplayFor(modelItem => item.NoteId)*@
+                    @*</td>
+                <td>*@
+                <td>
+                    <div class="post-wrapper">
+                        <div>
+                            <h3>@Html.DisplayFor(modelItem => item.userEmail)</h3>
 
-    </table>
-</div>
+                        </div>
+                        <div class="post-message">
+                            @Html.DisplayFor(modelItem => item.Title)
+                            <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
+                        </div>
+                    <div class="ts"> @Html.DisplayFor(modelItem => item.CreatedUtc)</div>
+                    </div>
+                </td>
+                    @*</td>
+                <td>*@
+                    @*@Html.DisplayFor(modelItem => item.IsStarred)@*, new { Id = item.NoteId })*@
+                    @*</td>
+                <td>*@
+                    @*</td>
+                <td>*@
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })*@
+                    @*</td>*@
+                    @*</tr>*@
+
+                </tr>
+
+            }
+
+</table>
+
 @section scripts {
     <script language="javascript" type="text/javascript">
 $(document).ready(function () {

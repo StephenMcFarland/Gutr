@@ -28,10 +28,10 @@
 
 @foreach (var item in Model) {
     <tr>
-        @*<td>*@
+        <td>
             @*@value = Html.DisplayFor(modelItem => item.userEmail)
             @substring = value.Substring(0, 5)*@
-        @*</td>*@
+        </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.NoteId)
         </td>*@
@@ -44,20 +44,20 @@
     <div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>
     <div class="noteid">@Html.DisplayFor(modelItem => item.NoteId)</div>
 
-    @* @Html.ActionLink("Fav", "Index", "Favorite"),new{ANoteId = item.NoteId})*@
-    @Html.ActionLink("Favorite this", "Favorite", "Favorite", new { id = item.NoteId }, null)
+    @Html.ActionLink("Fav", "Index", "Favorite")@*,new{ANoteId = item.NoteId})*@
+    @Html.ActionLink("SetFav", "Favorite", "Favorite",new { id = item.NoteId }, null)
 
-    @*@using (Html.BeginForm())
-        {
-        @Html.AntiForgeryToken()
+        @*@using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <div class="form-group">
+    <div class="form-horizontal">
+        <div class="form-group">
 
-                <input type="submit" value="Favorite" class="btn btn-default" style="padding: 10px" />
-            </div>
+            <input type="submit" value="Favorite" class="btn btn-default" style="padding: 10px" />
         </div>
-        }*@
+    </div>
+    }*@
 </div>
         </td>
         <td>

@@ -306,6 +306,9 @@
     <Content Include="Views\Shared\DisplayTemplates\Starred.cshtml" />
     <Content Include="Views\Note\Favorites.cshtml" />
     <Content Include="Views\Note\Favorite.cshtml" />
+    <Content Include="Views\Favorite\AllPosts.cshtml" />
+    <Content Include="Views\Note\MyFavorites.cshtml" />
+    <Content Include="Views\Favorite\MyFavorites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

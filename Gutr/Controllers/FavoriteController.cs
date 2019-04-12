@@ -14,32 +14,62 @@ namespace Gutr.Controllers
         // GET: Favorite
         public ActionResult Index()
         {
-            var service = CreateFavoriteService();
+            //var service = CreateFavoriteService();
 
-            var model = service.SetFavorite();
+            //var model = service.SetFavorite();
+            //return RedirectToAction("AllPosts", "Note", "AllPosts");
             return View();
         }
 
         
-        public ActionResult Favorite()
+        public ActionResult Favorite(int id)
         {
             //if (!ModelState.IsValid) return View(model);
 
             var service = CreateFavoriteService();
 
-            var model = service.SetFavorite();
+            var model = service.SetFavorite(id);
 
             //if (service.SetFavorite(model))
             //{
             //    TempData["SaveResult"] = "Your note was created.";
-                //return RedirectToAction("Favorite");
+            //return RedirectToAction("Favorite");
             //};
 
             //ModelState.AddModelError("", "Note could not be created.");
+            return RedirectToAction("AllPosts", "Note", "AllPosts");
+            //return View(model);
+        }
+
+        public ActionResult unFavorite(int noteId)
+        {
+            //if (!ModelState.IsValid) return View(model);
+
+            var service = CreateFavoriteService();
+
+            var model = service.unSetFavorite(noteId);
+
+            //if (service.SetFavorite(model))
+            //{
+            //    TempData["SaveResult"] = "Your note was created.";
+            //return RedirectToAction("Favorite");
+            //};
+
+            //ModelState.AddModelError("", "Note could not be created.");
+            return RedirectToAction("MyFavorites", "Note", "MyFavorites");
+            //return View(model);
+        }
+
+        // GET: My Favorites
+        [Authorize]
+        public ActionResult MyFavorites()
+        {
+            var service = CreateFavoriteService();
+
+            var model = service.GetMyFavorites();
 
             return View(model);
         }
-
         private FavoriteService CreateFavoriteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

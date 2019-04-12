@@ -44,6 +44,8 @@ namespace Gutr.Controllers
             return View(model);
         }
 
+    
+
         // GET: Favorites
         [Authorize]
         public ActionResult Favorites()
@@ -51,6 +53,17 @@ namespace Gutr.Controllers
             var service = CreateNoteService();
 
             var model = service.GetFavorites();
+
+            return View(model);
+        }
+
+        // GET: My Favorites
+        [Authorize]
+        public ActionResult MyFavorites()
+        {
+            var service = CreateFavoriteService();
+
+            var model = service.GetMyFavorites();
 
             return View(model);
         }
@@ -111,6 +124,13 @@ namespace Gutr.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new NoteService(userId);
+            return service;
+        }
+
+        private FavoriteService CreateFavoriteService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoriteService(userId);
             return service;
         }
 

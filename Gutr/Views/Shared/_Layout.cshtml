@@ -26,6 +26,7 @@
                     {
                         <li>@Html.ActionLink("Profile", "Index", "Profiles")</li>
                         <li>@Html.ActionLink("My Posts", "Index", "Note")</li>
+                        <li>@Html.ActionLink("My Favorites", "MyFavorites", "Note")</li>
                         <li>@Html.ActionLink("All Posts", "AllPosts", "Note")</li>
                         <li>@Html.ActionLink("All Favorites", "Favorites", "Note")</li>
                         //linkText, actionName, controllerName, routeValues, htmlAttributes
@@ -41,7 +42,7 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        
         <footer>
             <p>&copy; @DateTime.Now.Year - Gutr</p>
         </footer>

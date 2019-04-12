@@ -16,7 +16,7 @@ namespace Gutr.Services
         {
             _userId = userId;
         }
-        
+
         public bool SetFavorite()//FavoriteCreate model)
         {
             var entity =
@@ -24,7 +24,7 @@ namespace Gutr.Services
                {
                    OwnerId = _userId,
                    //FavoriteId = 22,//model.FavoriteId,
-                   //NoteId = noteId//NoteId//model.NoteId,
+                   //NoteId = id//NoteId//model.NoteId,
                    //CreatedUtc = DateTimeOffset.Now
                };
 
@@ -34,6 +34,69 @@ namespace Gutr.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool SetFavorite(int id)//FavoriteCreate model)
+        {
+            var entity =
+               new Data.Favorite()
+               {
+                   OwnerId = _userId,
+                   //FavoriteId = 22,//model.FavoriteId,
+                   NoteId = id//NoteId//model.NoteId,
+                   //CreatedUtc = DateTimeOffset.Now
+               };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Favorites.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool unSetFavorite(int noteId)//FavoriteCreate model)
+        {
+           using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Favorites
+                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+
+                ctx.Favorites.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<NoteListItem> GetMyFavorites()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                //var FavoritesNoteId = ctx.Favorites.FirstOrDefault(u => u.OwnerId == c.OwnerId).NoteId;
+
+                var query = 
+                    ctx
+                        .Favorites
+                        .Where(e => e.OwnerId == _userId)// && e.NoteId == ctx.Favorites.FirstOrDefault(c => c.OwnerId == e.OwnerId).NoteId)
+                        .Select(
+                            e =>
+                                new NoteListItem
+                                {
+                                    NoteId = e.NoteId,//ctx.Favorites.FirstOrDefault(c => c.OwnerId == e.OwnerId).NoteId,
+                                    //NoteId = ctx.Favorites.FirstOrDefault(c => c.NoteId == e.NoteId),
+                                    //Title = ctx.Notes.FirstOrDefault(c => c.OwnerId == e.OwnerId).Title,
+                                    Title = ctx.Notes.FirstOrDefault(c => c.NoteId == e.NoteId).Title,
+                                    //Content = ctx.Notes.FirstOrDefault(c => c.OwnerId == e.OwnerId).Content
+                                    Content = ctx.Notes.FirstOrDefault(c => c.NoteId == e.NoteId).Content
+                                    //IsStarred = e.IsStarred,
+                                    //CreatedUtc = e.CreatedUtc
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+
         public bool CreateNote(NoteCreate model)
         {
             var entity =
