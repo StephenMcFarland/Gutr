@@ -41,13 +41,13 @@ namespace Gutr.Controllers
             //return View(model);
         }
 
-        public ActionResult unFavorite(int noteId)
+        public ActionResult UnFavorite(int noteId)
         {
             //if (!ModelState.IsValid) return View(model);
 
             var service = CreateFavoriteService();
 
-            var model = service.unSetFavorite(noteId);
+            var model = service.UnSetFavorite(noteId);
 
             //if (service.SetFavorite(model))
             //{

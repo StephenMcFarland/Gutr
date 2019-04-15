@@ -82,7 +82,9 @@ namespace Gutr.Controllers
 
             var service = CreateNoteService();
 
-            if (service.CreateNote(model))
+            string userName = User.Identity.Name; 
+
+            if (service.CreateNote(model, userName))
             {
                 TempData["SaveResult"] = "Your note was created.";
                 return RedirectToAction("Index");

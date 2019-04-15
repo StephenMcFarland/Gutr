@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace Gutr.Services
 {
@@ -17,8 +18,11 @@ namespace Gutr.Services
             _userId = userId;
         }
 
-        public bool CreateNote(NoteCreate model)
+        public bool CreateNote(NoteCreate model, String userName)
         {
+            //var timestamp = DateTimeOffset.Now.ToString().Substring(0, 18);
+            
+
             var checkHttp = model.Content.Substring(0, 8);
             if (checkHttp != "https://")
             {
@@ -30,6 +34,7 @@ namespace Gutr.Services
                     OwnerId = _userId,
                     Title = model.Title,
                     Content = model.Content,
+                    Email = userName,// User.Identity.GetUserName(),
                     CreatedUtc = DateTimeOffset.Now
                 };
 
@@ -97,6 +102,7 @@ namespace Gutr.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                
                 //string value;
                 var query =
                     ctx
@@ -113,6 +119,7 @@ namespace Gutr.Services
                                     Content = e.Content,
                                     IsStarred = e.IsStarred,
                                     CreatedUtc = e.CreatedUtc
+                                    
                                 }
                         );
 

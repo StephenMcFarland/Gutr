@@ -52,7 +52,7 @@ namespace Gutr.Services
             }
         }
 
-        public bool unSetFavorite(int noteId)//FavoriteCreate model)
+        public bool UnSetFavorite(int noteId)//FavoriteCreate model)
         {
            using (var ctx = new ApplicationDbContext())
             {
@@ -82,7 +82,7 @@ namespace Gutr.Services
                                 new NoteListItem
                                 {
                                     userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
-                                    Author = "user undefined",//ctx.Notes.Where(e => e.NoteId > 0).Select(c => c.Id == e.OwnerId.ToString()).Email.Substring(0, 7),
+                                    Author = ctx.Notes.FirstOrDefault(c => c.NoteId == e.NoteId).Email,
                                     NoteId = e.NoteId,//ctx.Favorites.FirstOrDefault(c => c.OwnerId == e.OwnerId).NoteId,
                                     //NoteId = ctx.Favorites.FirstOrDefault(c => c.NoteId == e.NoteId),
                                     //Title = ctx.Notes.FirstOrDefault(c => c.OwnerId == e.OwnerId).Title,
@@ -156,7 +156,7 @@ namespace Gutr.Services
                                 new NoteListItem
                                 {
                                     //userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email,
-                                    userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
+                                    userEmail = e.Email,//ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
                                     NoteId = e.NoteId,
                                     Title = e.Title,
                                     IsStarred = e.IsStarred,

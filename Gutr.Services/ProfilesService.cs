@@ -79,5 +79,22 @@ namespace Gutr.Services
                     };
             }
         }
+
+        public bool DeleteProfile()
+        {
+
+         using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Profiles
+                        .Single(e => e.OwnerId == _userId);
+
+                ctx.Profiles.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
     }
 }

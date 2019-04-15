@@ -79,6 +79,17 @@ namespace Gutr.Controllers
         }
 
         // GET: Profile/Delete/5
+        public ActionResult DeleteProfile()
+        {
+            var service = CreateProfileService();
+
+            var model = service.DeleteProfile();
+
+            return RedirectToAction("Index", "Profiles");
+            
+        }
+
+        // GET: Profile/Delete/5
         public ActionResult Delete(int id)
         {
             return View();

@@ -62,20 +62,21 @@
             <td>*@
         @*@Html.ActionLink("Details", "Details", new { id=item.OwnerId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.OwnerId })*@
+        @Html.ActionLink("Delete", "DeleteProfile", "Profile", new { id = item.OwnerId }, null)
         @*</td>
             </tr>*@
     }
 
-    @*</table>*@
-    
+    </table>
 
-        @*//var myString = Html.DisplayFor(modelItem => item.Name).ToString();
+
+    @*//var myString = Html.DisplayFor(modelItem => item.Name).ToString();
         //if (String.IsNullOrEmpty(myString) == false)
         //if (myString.Length == 0 || myString == null)
 
         <div>@ViewBag.hasProfile</div>*@
-        @if (ViewBag.hasProfile == false)
-        {
+    @if (ViewBag.hasProfile == false)
+    {
         <div> @Html.ActionLink("Create New", "Create")</div>
     }
     @*}*@

@@ -25,6 +25,8 @@ namespace Gutr.Data
         [DefaultValue(false)]
         public bool IsStarred { get; set; }
 
+        public string Email { get; set; }
+
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 

@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201904111738029_Favorite.Designer.cs">
       <DependentUpon>201904111738029_Favorite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904151911161_Email.cs" />
+    <Compile Include="Migrations\201904151911161_Email.Designer.cs">
+      <DependentUpon>201904151911161_Email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Profile.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904111738029_Favorite.resx">
       <DependentUpon>201904111738029_Favorite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904151911161_Email.resx">
+      <DependentUpon>201904151911161_Email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

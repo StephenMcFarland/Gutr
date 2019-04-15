@@ -26,16 +26,16 @@ textarea {
 
 .noteid {
     position: relative;
-    font-weight: bold;
-    color: aliceblue;
+    /*font-weight: bold;*/
+    color: #fff;
     bottom: 13px;
     float: right;
     padding-bottom: 13px;
 }
 .ts {
-    font-size: 12px;
-    font-weight: bold;
-    color:aliceblue;
+    font-size: 12pt;
+    /*font-weight: bold;*/
+    color: #fff;
     padding-left: 10px;
 }
 

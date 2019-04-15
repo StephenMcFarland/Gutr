@@ -18,6 +18,7 @@ namespace Gutr.Models
         public string Content { get; set; }
 
         public int FavoriteId { get; set; }
+        public string Email { get; set; }
 
         public override string ToString() => Title;
        
