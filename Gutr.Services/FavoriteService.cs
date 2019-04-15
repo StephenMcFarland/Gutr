@@ -59,7 +59,7 @@ namespace Gutr.Services
                 var entity =
                     ctx
                         .Favorites
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                        .FirstOrDefault(e => e.NoteId == noteId && e.OwnerId == _userId);
 
                 ctx.Favorites.Remove(entity);
 
@@ -81,6 +81,8 @@ namespace Gutr.Services
                             e =>
                                 new NoteListItem
                                 {
+                                    userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
+                                    Author = "user undefined",//ctx.Notes.Where(e => e.NoteId > 0).Select(c => c.Id == e.OwnerId.ToString()).Email.Substring(0, 7),
                                     NoteId = e.NoteId,//ctx.Favorites.FirstOrDefault(c => c.OwnerId == e.OwnerId).NoteId,
                                     //NoteId = ctx.Favorites.FirstOrDefault(c => c.NoteId == e.NoteId),
                                     //Title = ctx.Notes.FirstOrDefault(c => c.OwnerId == e.OwnerId).Title,

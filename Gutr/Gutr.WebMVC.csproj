@@ -304,7 +304,7 @@
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Starred.cshtml" />
-    <Content Include="Views\Note\Favorites.cshtml" />
+    <Content Include="Views\Note\AllFavorites.cshtml" />
     <Content Include="Views\Note\Favorite.cshtml" />
     <Content Include="Views\Favorite\AllPosts.cshtml" />
     <Content Include="Views\Note\MyFavorites.cshtml" />

@@ -10,6 +10,8 @@ namespace Gutr.Models
     public class NoteListItem
     {
         public string userEmail { get; set; }
+
+        public string Author { get; set; }
         public int NoteId { get; set; }
         public string Title { get; set; }
 

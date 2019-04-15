@@ -93,7 +93,7 @@ namespace Gutr.Services
             }
         }
 
-        public IEnumerable<NoteListItem> GetFavorites()
+        public IEnumerable<NoteListItem> GetAllFavorites()
         {
             using (var ctx = new ApplicationDbContext())
             {

@@ -40,9 +40,11 @@
                 @*@Html.DisplayFor(modelItem => item.NoteId)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-                <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
-            </td>
+                <div style="max-width:400px">
+                    @Html.DisplayFor(modelItem => item.Title)
+                    <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
+                </div>
+                    </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.NoteId })
             </td>
@@ -50,9 +52,11 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
+                <h4>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
+                </h4>
             </td>
         </tr>
     }

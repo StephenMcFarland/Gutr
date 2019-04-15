@@ -39,6 +39,13 @@ namespace Gutr.Controllers
             //}
             //else { ViewBag.hasProfile = ProfileStr; }// true; }
 
+            Profile pf = db.Profiles.Find(_userId);
+            if (pf != null)
+            {
+                ViewBag.hasProfile = true;
+            }
+            else { ViewBag.hasProfile = false; }
+
             return View(profile);//.ToList());// db.Profiles.ToList());
 
             //var service = CreateProfileService();

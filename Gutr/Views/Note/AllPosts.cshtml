@@ -9,7 +9,7 @@
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
-<table class="table">
+@*<table class="table">*@
     @*<tr>
         <th>
             @Html.DisplayNameFor(model => model.userEmail)
@@ -27,7 +27,7 @@
     </tr>*@
 
 @foreach (var item in Model) {
-    <tr>
+    @*<tr>*@
         @*<td>*@
             @*@value = Html.DisplayFor(modelItem => item.userEmail)
             @substring = value.Substring(0, 5)*@
@@ -35,14 +35,14 @@
         @*<td>
             @Html.DisplayFor(modelItem => item.NoteId)
         </td>*@
-        <td><div class="post-wrapper">
+        <div class="post-wrapper">
     <div><h3><a href="#">@Html.DisplayFor(modelItem => item.userEmail)</a> says:  </h3></div>
     <div class="post-message">
         @Html.DisplayFor(modelItem => item.Title)
         <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank">@Html.DisplayFor(modelItem => item.Content)</a>
     </div>
     <div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>
-    <div class="noteid">@Html.DisplayFor(modelItem => item.NoteId)</div>
+    <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
 
     @* @Html.ActionLink("Fav", "Index", "Favorite"),new{ANoteId = item.NoteId})*@
     @Html.ActionLink("Favorite this", "Favorite", "Favorite", new { id = item.NoteId }, null)
@@ -59,16 +59,16 @@
         </div>
         }*@
 </div>
-        </td>
-        <td>
-</td>
+        
+        @*<td>
+</td>*@
         @*This area is for editing your own posts*@
         @*<td>
             @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
             @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
         </td>*@
-    </tr>
+    @*</tr>*@
 }
 
-</table>
+@*</table>*@

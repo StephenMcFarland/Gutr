@@ -24,12 +24,19 @@ textarea {
     max-width: 280px;
 }
 
-.noteid{
+.noteid {
+    position: relative;
+    font-weight: bold;
+    color: aliceblue;
+    bottom: 13px;
     float: right;
+    padding-bottom: 13px;
 }
 .ts {
-    font-size: 10px;
-    font-weight: bolder;
+    font-size: 12px;
+    font-weight: bold;
+    color:aliceblue;
+    padding-left: 10px;
 }
 
 .post-message{
@@ -37,17 +44,22 @@ textarea {
     border-radius: 8px;
     margin: 5px;
     padding: 13px;
+    max-width: 420px;
 }
 
-.post-wrapper{
+.post-wrapper {
     background-color: rgb(182, 255, 0, 0.7);
-    border-radius: 14px;
-    margin: 6px;
+    border-radius: 0 0 24px 24px;
+    margin: 20px;
     padding: 10px;
     max-width: 450px;
+    border-style: solid;
+    border-width: 2px 0 6px 0;
+    border-top-color: rgb(252, 201, 33);
+    border-bottom-color: rgba(62, 211, 251, 0.60);
 }
 
 .img-gutters{
     border-radius: 30px;
-    width: 30%;
+    width: 50%;
 }
