@@ -64,68 +64,22 @@ namespace Gutr.Services
 
         public ProfileDetail GetUserProfile(string userName)
         {
-            //    using (var ctx = new ApplicationDbContext())
-            //    {
-
-            //    var entity =
-            //     ctx
-            //         .Profiles
-            //             //.Where(e => e.OwnerId == _userId)
-            //             //.Select(
-            //             // e =>
-            //             .Single(e => e.OwnerId == _userId);
-            //return
-            //new ProfileDetail
-            //{
-            //        //OwnerId = entity.OwnerId,
-            //        Name = entity.Name,
-            //    Summary = entity.Summary,
-            //    Url = entity.Url
-            //};
-
-            //using (var ctx = new ApplicationDbContext())
-            //{
-            //    var query =
-            //        ctx
-            //            .Notes
-            //            .Where(e => e.Email == userName)
-            //            .Select(
-            //                e =>
-
-            //                new ProfileDetail
-            //                {
-            //                        // userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
-            //                        Name = ctx.Profiles.FirstOrDefault(c => c.OwnerId == e.OwnerId).Name,
-            //                    Summary = ctx.Profiles.FirstOrDefault(c => c.OwnerId == e.OwnerId).Summary,
-            //                    Url = ctx.Profiles.FirstOrDefault(c => c.OwnerId == e.OwnerId).Url
-            //                }
-            //            );
-
-            //    return query.ToArray();
-            //}
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var entity =
                     ctx
                         .Profiles
-                            .Where(e => e.Email == userName)
-                            .Select(
-                             e =>
-                //.Single(e => e.OwnerId);
-                //return
-                new ProfileDetail
+                        .Single(e => e.Email == userName);
+                return
+                new ProfileDetail()
                 {
                     //OwnerId = entity.OwnerId,
-                    Name = e.Name,
-                    Summary = e.Summary,
-                    Url = e.Url,
+                    Name = entity.Name,
+                    Summary = entity.Summary,
+                    Url = entity.Url
 
-                }
-
-
-                );
-
-                return query.ToArray();
+                };
+                                                            
             }
         }
             public Profile GetProfileById()
