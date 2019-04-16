@@ -1,0 +1,76 @@
+﻿@model Gutr.Models.ProfileDetail  
+
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<h2>UserProfile</h2>
+
+
+
+
+
+
+
+
+<h2>@ViewBag.userName's Profile</h2>
+
+@*<p>
+    {
+        //foreach (var item in Model)
+        //{
+           // <div>test</div>
+            //Html.DisplayFor(modelItem => item.Name);
+            //var myString = Html.DisplayFor(modelItem => item.Name);
+            @*if (String.IsNullOrEmpty(myString) == false)
+                    {
+                        @Html.ActionLink("Create New", "Create");
+                }*@
+@*//}
+    // }*@
+@*@Html.ActionLink("Create New", "Create")
+    </p>*@
+@*<table class="table">*@
+    @*<tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+        <th>
+           @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>*@
+
+    @foreach (var item in Model)
+    {
+       
+        @*<tr>
+            <td>*@
+        <h4>
+            Name:
+            @Html.DisplayFor(modelItem => item.Name)
+        </h4>
+        @*</td>
+            <td>*@
+        <h4>
+            Bio:
+            @Html.DisplayFor(modelItem => item.Summary)
+        </h4>
+        @*</td>
+            <td>*@
+        <h4>
+            My Favorite Website:
+            <a href="@Html.DisplayFor(modelItem => item.Url)" target="blank">@Html.DisplayFor(modelItem => item.Url)</a>
+        </h4>
+        
+    }
+
+@*</table>*@
+
+
+
+
+

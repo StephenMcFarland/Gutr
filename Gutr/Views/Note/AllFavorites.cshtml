@@ -57,7 +57,7 @@
                             @Html.DisplayFor(modelItem => item.Title)
                             <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
                         </div>
-                        <div class="ts"> @Html.DisplayFor(modelItem => item.CreatedUtc)</div>
+                        <div class="ts"> @Html.DisplayFor(modelItem => item.CreatedUtc).ToString().Substring(0, 21)</div>
                         <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
                     </div>
                 @*</td>*@

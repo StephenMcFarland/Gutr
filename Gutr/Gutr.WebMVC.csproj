@@ -309,6 +309,8 @@
     <Content Include="Views\Favorite\AllPosts.cshtml" />
     <Content Include="Views\Note\MyFavorites.cshtml" />
     <Content Include="Views\Favorite\MyFavorites.cshtml" />
+    <Content Include="Views\Profiles\UserProfile.cshtml" />
+    <Content Include="Views\Profiles\UP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

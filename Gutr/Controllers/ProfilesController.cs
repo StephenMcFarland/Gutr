@@ -55,6 +55,48 @@ namespace Gutr.Controllers
             //return View(model);
         }
 
+        public ActionResult UserProfile(string userName)
+        {
+            //var _userId = Guid.Parse(User.Identity.GetUserId());
+
+            //var profile = from m in db.Profiles
+            //             where m.OwnerId == OwnerId
+            //             select m;
+            //var profile = from m in db.Profiles
+            //                  //where m.Name == "name 2"
+            //              where m.OwnerId == _userId
+            //              select m;
+           
+
+            var service = CreateProfileService();
+
+            var model = service.GetUserProfile(userName);
+
+            return View(model);
+            //return View();
+        }
+
+        public ActionResult UP(string userName)
+        {
+            //var _userId = Guid.Parse(User.Identity.GetUserId());
+
+            //var profile = from m in db.Profiles
+            //             where m.OwnerId == OwnerId
+            //             select m;
+            //var profile = from m in db.Profiles
+            //                  //where m.Name == "name 2"
+            //              where m.OwnerId == _userId
+            //              select m;
+
+
+            var service = CreateProfileService();
+
+            var model = service.GetUserProfile(userName);
+
+            return View(model);
+            //return View();
+        }
+
         // GET: Profiles/Details/5
         //public ActionResult Details(Guid? id)
         //{
@@ -98,6 +140,7 @@ namespace Gutr.Controllers
                     profile.Url = "https://" + profile.Url;
                 }
                 profile.OwnerId = Guid.Parse(User.Identity.GetUserId());
+                profile.Email = User.Identity.Name;
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");

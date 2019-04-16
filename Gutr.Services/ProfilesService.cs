@@ -20,13 +20,14 @@ namespace Gutr.Services
 
         public bool CreateProfile(ProfileCreate model)
         {
+
             var entity =
                 new Profile()
                 {
                     OwnerId = _userId,
                     Name = model.Name,
                     Summary = model.Summary,
-                    
+                    //Email = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -43,9 +44,9 @@ namespace Gutr.Services
                 var entity =
                     ctx
                         .Profiles
-                        //.Where(e => e.OwnerId == _userId)
-                        //.Select(
-                           // e =>
+                            //.Where(e => e.OwnerId == _userId)
+                            //.Select(
+                            // e =>
                             .Single(e => e.OwnerId == _userId);
                 return
                 new ProfileDetail
@@ -55,46 +56,113 @@ namespace Gutr.Services
                     Summary = entity.Summary,
                     Url = entity.Url
                 };
-                        
+
 
                 //return query.ToArray();
             }
         }
 
-        public Profile GetProfileById()
+        public ProfileDetail GetUserProfile(string userName)
         {
+            //    using (var ctx = new ApplicationDbContext())
+            //    {
+
+            //    var entity =
+            //     ctx
+            //         .Profiles
+            //             //.Where(e => e.OwnerId == _userId)
+            //             //.Select(
+            //             // e =>
+            //             .Single(e => e.OwnerId == _userId);
+            //return
+            //new ProfileDetail
+            //{
+            //        //OwnerId = entity.OwnerId,
+            //        Name = entity.Name,
+            //    Summary = entity.Summary,
+            //    Url = entity.Url
+            //};
+
+            //using (var ctx = new ApplicationDbContext())
+            //{
+            //    var query =
+            //        ctx
+            //            .Notes
+            //            .Where(e => e.Email == userName)
+            //            .Select(
+            //                e =>
+
+            //                new ProfileDetail
+            //                {
+            //                        // userEmail = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email.Substring(0, 5),
+            //                        Name = ctx.Profiles.FirstOrDefault(c => c.OwnerId == e.OwnerId).Name,
+            //                    Summary = ctx.Profiles.FirstOrDefault(c => c.OwnerId == e.OwnerId).Summary,
+            //                    Url = ctx.Profiles.FirstOrDefault(c => c.OwnerId == e.OwnerId).Url
+            //                }
+            //            );
+
+            //    return query.ToArray();
+            //}
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var query =
                     ctx
                         .Profiles
-                        .Single(e => e.OwnerId == _userId);
-                return
-                    new Profile
-                    {
-                        Name = entity.Name,
-                        Summary = entity.Summary,
-                        Url = entity.Url,
-                        
-                    };
+                            .Where(e => e.Email == userName)
+                            .Select(
+                             e =>
+                //.Single(e => e.OwnerId);
+                //return
+                new ProfileDetail
+                {
+                    //OwnerId = entity.OwnerId,
+                    Name = e.Name,
+                    Summary = e.Summary,
+                    Url = e.Url,
+
+                }
+
+
+                );
+
+                return query.ToArray();
             }
         }
-
-        public bool DeleteProfile()
-        {
-
-         using (var ctx = new ApplicationDbContext())
+            public Profile GetProfileById()
             {
-                var entity =
-                    ctx
-                        .Profiles
-                        .Single(e => e.OwnerId == _userId);
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity =
+                        ctx
+                            .Profiles
+                            .Single(e => e.OwnerId == _userId);
+                    return
+                        new Profile
+                        {
+                            Name = entity.Name,
+                            Summary = entity.Summary,
+                            Url = entity.Url,
 
-                ctx.Profiles.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
+                        };
+                }
             }
 
+            public bool DeleteProfile()
+            {
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity =
+                        ctx
+                            .Profiles
+                            .Single(e => e.OwnerId == _userId);
+
+                    ctx.Profiles.Remove(entity);
+
+                    return ctx.SaveChanges() == 1;
+                }
+
+            }
         }
     }
-}
+

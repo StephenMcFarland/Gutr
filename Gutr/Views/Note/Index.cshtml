@@ -19,7 +19,8 @@
         </button>
     </div>*@
 }
-<table class="table">
+<table class="table post-message">
+    @*<div class="post-message">*@
     @*<tr>
             <th>
                 @Html.DisplayNameFor(model => model.NoteId)
@@ -40,27 +41,28 @@
                 @*@Html.DisplayFor(modelItem => item.NoteId)*@
             </td>
             <td>
-                <div style="max-width:400px">
+                <div style="max-width:550px">
                     @Html.DisplayFor(modelItem => item.Title)
                     <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
-                </div>
-                    </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.NoteId })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
                 <h4>
                     @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
                     @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
                 </h4>
+                </div>
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.NoteId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc).ToString().Substring(0, 21)
+            </td>
+            @*<td>
+            </td>*@
         </tr>
     }
 
+    @*</div>*@
 </table>
 
 @section scripts {

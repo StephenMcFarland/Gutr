@@ -25,16 +25,19 @@
         @Html.DisplayFor(modelItem => item.Title)
         <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank">@Html.DisplayFor(modelItem => item.Content)</a>
     </div><div>Author: @Html.DisplayFor(modelItem => item.Author)</div>
-    
+
     @Html.ActionLink("user profile", "Index", "Profiles")@*, new { noteId = item.NoteId }, null)*@
-    
-                    @*<div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>*@
-                    @Html.ActionLink("unFavorite this", "unFavorite", "Favorite", new { noteId = item.NoteId }, null)
-                <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
-                @*</div>*@
-            @*</td>
+    @Html.ActionLink("UserProfile", "UserProfile", "Profiles", new { userName = item.Author }, null)
+    @Html.ActionLink("UP", "UP", "Profiles", new { userName = item.Author }, null)
+
+
+    @*<div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>*@
+    @Html.ActionLink("unFavorite this", "UnFavorite", "Favorite", new { noteId = item.NoteId }, null)
+    <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
+    @*</div>*@
+    @*</td>
         </tr>*@
-    </div>
+</div>
     }
 
 
