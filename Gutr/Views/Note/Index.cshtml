@@ -6,9 +6,9 @@
 
 <h2>My Posts</h2>
 
-<p>
+<h4>
     @Html.ActionLink("Create New", "Create")
-</p>
+</h4>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -19,7 +19,7 @@
         </button>
     </div>*@
 }
-<table class="table post-message">
+<table class="table">
     @*<div class="post-message">*@
     @*<tr>
             <th>
@@ -36,19 +36,14 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
+        <tr class="post-message">
+            @*<td>*@
                 @*@Html.DisplayFor(modelItem => item.NoteId)*@
-            </td>
+            @*</td>*@
             <td>
-                <div style="max-width:550px">
-                    @Html.DisplayFor(modelItem => item.Title)
-                    <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
-                <h4>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
-                </h4>
+                <div style="max-width:350px">
+                    <div> @Html.DisplayFor(modelItem => item.Title)</div>
+                    <div><a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a></div>
                 </div>
             </td>
             <td>
@@ -59,6 +54,14 @@
             </td>
             @*<td>
             </td>*@
+        </tr>
+        <tr><td>
+    <h4>
+        @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.NoteId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
+    </h4>
+</td>
         </tr>
     }
 

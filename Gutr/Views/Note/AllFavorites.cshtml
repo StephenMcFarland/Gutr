@@ -51,15 +51,16 @@
                     @*</td>
                 <td>*@
                 @*<td>*@
-                    <div class="post-wrapper">
-                        <div class="ts"><h4>@Html.DisplayFor(modelItem => item.userEmail) says:  </h4></div>
-                        <div class="post-message">
-                            @Html.DisplayFor(modelItem => item.Title)
-                            <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
-                        </div>
-                        <div class="ts"> @Html.DisplayFor(modelItem => item.CreatedUtc).ToString().Substring(0, 21)</div>
-                        <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
-                    </div>
+<div class="post-wrapper">
+    
+    <div class="ts"><h4><a href="@Url.Action("UP","Profiles",new { userName = Html.DisplayFor(modelItem => item.userEmail) }, null)">@Html.DisplayFor(modelItem => item.userEmail)</a> says:  </h4></div>
+    <div class="post-message">
+        @Html.DisplayFor(modelItem => item.Title)
+        <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
+    </div>
+    <div class="ts"> @Html.DisplayFor(modelItem => item.CreatedUtc).ToString().Substring(0, 21)</div>
+    <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
+</div>
                 @*</td>*@
                     @*</td>
                 <td>*@
