@@ -2,6 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: gainsboro;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -25,6 +26,7 @@ textarea {
 }
 
 .noteid {
+    font-family: 'Rock Salt', cursive;
     position: relative;
     /*font-weight: bold;*/
     color: #fff;
@@ -39,9 +41,16 @@ textarea {
     padding-left: 10px;
 }
 
-.post-message{
-    background-color:antiquewhite;
+.ts a:link {
+    color:chocolate;
+}
+.post-message {
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color: white;
     border-radius: 8px;
+    border-style: solid;
+    border-width: 3px 0 0 0;
+    border-top-color: #999;
     margin: 5px;
     padding: 13px;
     max-width: 420px;
@@ -54,12 +63,17 @@ textarea {
     padding: 10px;
     max-width: 450px;
     border-style: solid;
-    border-width: 2px 0 6px 0;
+    border-width: 7px 0 6px 0;
     border-top-color: rgb(252, 201, 33);
     border-bottom-color: rgba(62, 211, 251, 0.60);
+    box-shadow: 2px 6px 15px #888888;
 }
 
 .img-gutters{
     border-radius: 30px;
     width: 50%;
+}
+
+h2 {
+    font-family: 'Rock Salt', cursive;
 }

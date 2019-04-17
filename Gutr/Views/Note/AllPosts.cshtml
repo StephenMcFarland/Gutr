@@ -36,7 +36,7 @@
             @Html.DisplayFor(modelItem => item.NoteId)
         </td>*@
         <div class="post-wrapper">
-    <div><h3><a href="#">@Html.DisplayFor(modelItem => item.userEmail)</a> says:  </h3></div>
+    <div class="ts"><h4>@Html.DisplayFor(modelItem => item.userEmail) says:  </h4></div>
     <div class="post-message">
         @Html.DisplayFor(modelItem => item.Title)
         <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank">@Html.DisplayFor(modelItem => item.Content)</a>
@@ -45,7 +45,7 @@
     <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
 
     @* @Html.ActionLink("Fav", "Index", "Favorite"),new{ANoteId = item.NoteId})*@
-    @Html.ActionLink("Favorite this", "Favorite", "Favorite", new { id = item.NoteId }, null)
+        <div class="ts">@Html.ActionLink("Favorite", "Favorite", "Favorite", new { id = item.NoteId }, null)</div>
 
     @*@using (Html.BeginForm())
         {
