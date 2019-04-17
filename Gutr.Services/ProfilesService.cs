@@ -27,7 +27,7 @@ namespace Gutr.Services
                     OwnerId = _userId,
                     Name = model.Name,
                     Summary = model.Summary,
-                    //Email = ctx.Users.FirstOrDefault(u => u.Id == e.OwnerId.ToString()).Email
+                    ImageUrl = model.ImageUrl
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -54,7 +54,8 @@ namespace Gutr.Services
                     //OwnerId = entity.OwnerId,
                     Name = entity.Name,
                     Summary = entity.Summary,
-                    Url = entity.Url
+                    Url = entity.Url,
+                    ImageUrl = entity.ImageUrl
                 };
 
 
@@ -76,7 +77,8 @@ namespace Gutr.Services
                     //OwnerId = entity.OwnerId,
                     Name = entity.Name,
                     Summary = entity.Summary,
-                    Url = entity.Url
+                    Url = entity.Url,
+                    ImageUrl = entity.ImageUrl
 
                 };
                                                             

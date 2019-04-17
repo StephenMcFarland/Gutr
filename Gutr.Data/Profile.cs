@@ -21,5 +21,7 @@ namespace Gutr.Data
         public string Url { get; set; }
 
         public string Email { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

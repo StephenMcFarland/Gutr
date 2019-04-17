@@ -130,7 +130,7 @@ namespace Gutr.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OwnerId,Name,Summary,Url")] Profile profile)
+        public ActionResult Create([Bind(Include = "OwnerId,Name,Summary,Url,ImageUrl")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -157,6 +157,7 @@ namespace Gutr.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Profile profile = db.Profiles.Find(id);
+
             if (profile == null)
             {
                 return HttpNotFound();
@@ -169,7 +170,7 @@ namespace Gutr.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OwnerId,Name,Summary,Url")] Profile profile)
+        public ActionResult Edit([Bind(Include = "OwnerId,Name,Summary,Url,ImageUrl")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -178,6 +179,7 @@ namespace Gutr.Controllers
                 {
                     profile.Url = "https://" + profile.Url;
                 }
+                profile.Email = User.Identity.Name;
                 db.Entry(profile).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

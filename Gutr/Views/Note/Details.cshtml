@@ -5,53 +5,35 @@
 }
 
 <h2>My Posts > Details</h2>
+<div>
+    <h4>
+        Post#
+    </h4>
+
+    @Html.DisplayFor(model => model.NoteId)
+</div>
 
 <div>
-    @*<h4>Details</h4>
-    <hr />*@
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NoteId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NoteId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
+    <h4>Post:</h4>
+    @Html.DisplayFor(model => model.Title)
 </div>
+
+
+
+<div>
+    <h4>Link:</h4>
+    @Html.DisplayFor(model => model.Content)
+</div>
+
+
+
+<div>
+    @Html.DisplayFor(model => model.CreatedUtc)
+</div>
+
+
+
+
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.NoteId }) |*@
     @Html.ActionLink("Back to My Posts", "Index")

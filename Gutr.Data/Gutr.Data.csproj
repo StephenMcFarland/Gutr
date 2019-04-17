@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201904161826334_Profile-Email.Designer.cs">
       <DependentUpon>201904161826334_Profile-Email.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904162342448_ImageUrl.cs" />
+    <Compile Include="Migrations\201904162342448_ImageUrl.Designer.cs">
+      <DependentUpon>201904162342448_ImageUrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Profile.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904161826334_Profile-Email.resx">
       <DependentUpon>201904161826334_Profile-Email.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904162342448_ImageUrl.resx">
+      <DependentUpon>201904162342448_ImageUrl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

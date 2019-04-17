@@ -4,36 +4,32 @@
     ViewBag.Title = "UP";
 }
 
-<h2>UP</h2>
+
+
+
+<h2>@*@Html.DisplayFor(model => model.Email)*@Profile</h2>
 
 <div>
-    <h4>Profile</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Summary)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Summary)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Url)
-        </dd>
-
-    </dl>
+    <img src="@Html.DisplayFor(model => model.ImageUrl)" alt="Profile Image" />
 </div>
+
+<h4>
+    Name:
+    @Html.DisplayFor(model => model.Name)
+</h4>
+
+<h4>
+    Bio:
+    @Html.DisplayFor(model => model.Summary)
+</h4>
+
+
+
+
+
+<h4>
+    My Favorite Website:
+    <a href="@Html.DisplayFor(model => model.Url)" target="blank">@Html.DisplayFor(model => model.Url)</a>
+</h4>
+
 
