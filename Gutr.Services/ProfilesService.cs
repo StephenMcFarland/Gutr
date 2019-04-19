@@ -74,7 +74,7 @@ namespace Gutr.Services
                 return
                 new ProfileDetail()
                 {
-                    //OwnerId = entity.OwnerId,
+                    UserName = userName,
                     Name = entity.Name,
                     Summary = entity.Summary,
                     Url = entity.Url,
