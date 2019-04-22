@@ -23,41 +23,45 @@
             @*<td>*@
 <div class="post-wrapper">
     @*<a href="@Url.Action("UP","Profiles",new { userName = Html.DisplayFor(modelItem => item.userEmail) }, null)">@Html.DisplayFor(modelItem => item.userEmail)</a>*@
-    <div class="ts"><h4>@Html.DisplayFor(modelItem => item.userEmail) favorited:  </h4></div>
-    <div class="post-message">
-        @Html.DisplayFor(modelItem => item.Title)
-        @if (@Html.DisplayFor(modelItem => item.Content).ToString().Length > 29)
-        {
-            <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content).ToString().Substring(0, 30) ~</a>
-        }
-        else
-        {
+    <div class="ts">
+        <h4>
+            @*@Html.DisplayFor(modelItem => item.userEmail)*@You Favorited:
+        <a href="@Url.Action("UP","Profiles",new { userName = item.Author }, null)">@Html.DisplayFor(modelItem => item.Author)'s Post</a>
+    </h4>
+</div>
+<div class="post-message">
+    @Html.DisplayFor(modelItem => item.Title)
+    @if (@Html.DisplayFor(modelItem => item.Content).ToString().Length > 29)
+    {
+        <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content).ToString().Substring(0, 30) ~</a>
+    }
+    else
+    {
 
-            <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
-        }
-    </div>
-    @*<div class="ts">Author: @Html.DisplayFor(modelItem => item.Author)</div>*@
+        <a href="@Html.DisplayFor(modelItem => item.Content)" target="blank"> @Html.DisplayFor(modelItem => item.Content)</a>
+    }
+</div>
+@*<div class="ts">Author: @Html.DisplayFor(modelItem => item.Author)</div>*@
 
-    @*@Html.ActionLink("user profile", "Index", "Profiles")@*, new { noteId = item.NoteId }, null)*@
-    @*@Html.ActionLink(Author, "UP", "Profiles", new { userName = item.Author }, null)*@
-    @*<div class="ts">
-            @Html.ActionLink("View Author's Profile", "UP", "Profiles", new { userName = item.Author }, null)
-        </div>*@
+@*@Html.ActionLink("user profile", "Index", "Profiles")@*, new { noteId = item.NoteId }, null)*@
+@*@Html.ActionLink(Author, "UP", "Profiles", new { userName = item.Author }, null)*@
+@*<div class="ts">
+        @Html.ActionLink("View Author's Profile", "UP", "Profiles", new { userName = item.Author }, null)
+    </div>*@
 
-    <div>
-        <a href="@Url.Action("UP","Profiles",new { userName = item.Author }, null)">@Html.DisplayFor(modelItem => item.Author)</a>
-    </div>
-
-
-    @*<div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>*@
-    <div class="ts"> @Html.ActionLink("UnFavorite", "UnFavorite", "Favorite", new { noteId = item.NoteId }, null)</div>
-    <div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
-
+<div>
+</div>
 
 
-    @*</div>*@
-    @*</td>
-        </tr>*@
+@*<div class="ts">@Html.DisplayFor(modelItem => item.CreatedUtc)</div>*@
+<div class="ts"> @Html.ActionLink("UnFavorite", "UnFavorite", "Favorite", new { noteId = item.NoteId }, null)</div>
+<div class="noteid">Post #@Html.DisplayFor(modelItem => item.NoteId)</div>
+
+
+
+@*</div>*@
+@*</td>
+    </tr>*@
 </div>
     }
 

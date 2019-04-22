@@ -14,7 +14,8 @@ namespace Gutr.Models
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Name { get; set; }
 
-        [MaxLength(8000)]
+        [MinLength(5, ErrorMessage = "Please enter at least 5 characters.")]
+        [MaxLength(500)]
         public string Summary { get; set; }
 
         public string Url { get; set; }

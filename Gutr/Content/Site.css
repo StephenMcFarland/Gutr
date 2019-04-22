@@ -5,6 +5,10 @@
     
 }
 
+/*body a:link {
+    color:chocolate;
+}*/
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -41,9 +45,11 @@ textarea {
     padding-left: 10px;
 }
 
-.ts a:link {
+/*.ts a:link a:visited {
     color:chocolate;
-}
+}*/
+
+
 .post-message {
     font-family: 'Gloria Hallelujah', cursive;
     background-color: white;

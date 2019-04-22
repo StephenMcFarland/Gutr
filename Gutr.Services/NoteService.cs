@@ -22,11 +22,16 @@ namespace Gutr.Services
         {
             //var timestamp = DateTimeOffset.Now.ToString().Substring(0, 18);
             
-
+            if(model.Content.Length < 8)
+            {
+                model.Content = "https://" + model.Content;
+            }
+            else { 
             var checkHttp = model.Content.Substring(0, 8);
             if (checkHttp != "https://")
             {
                 model.Content = "https://" + model.Content;
+            }
             }
             var entity =
                 new Note()
