@@ -13,6 +13,10 @@ using Gutr.Data;
 
 namespace Gutr.Controllers
 {
+#if !DEBUG
+     [RequireHttps]
+
+#endif
     [Authorize]
     public class AccountController : Controller
     {
