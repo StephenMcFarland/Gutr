@@ -82,9 +82,10 @@ namespace Gutr.Controllers
 
             var service = CreateNoteService();
 
-            string userName = User.Identity.Name; 
+            string userName = User.Identity.Name;
 
-            if (service.CreateNote(model, userName))
+            //if (service.CreateNote(model, userName))
+                if (service.CreateNote(model))
             {
                 TempData["SaveResult"] = "Your note was created.";
                 return RedirectToAction("Index");
@@ -125,7 +126,8 @@ namespace Gutr.Controllers
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new NoteService(userId);
+            var username = User.Identity.GetUserName();
+            var service = new NoteService(userId, username);
             return service;
         }
 

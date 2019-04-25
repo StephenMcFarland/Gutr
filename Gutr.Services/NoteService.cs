@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNet.Identity;
 
 namespace Gutr.Services
@@ -12,13 +13,21 @@ namespace Gutr.Services
     public class NoteService
     {
         private readonly Guid _userId;
+        private readonly string _userName;
 
         public NoteService(Guid userId)
         {
             _userId = userId;
         }
+        
+        public NoteService(Guid userId, string userName)
+        {
+            _userId = userId;
+            _userName = userName;
+        }
 
-        public bool CreateNote(NoteCreate model, String userName)
+        //public bool CreateNote(NoteCreate model, string userName)
+        public bool CreateNote(NoteCreate model)
         {
             //var timestamp = DateTimeOffset.Now.ToString().Substring(0, 18);
             
@@ -39,7 +48,8 @@ namespace Gutr.Services
                     OwnerId = _userId,
                     Title = model.Title,
                     Content = model.Content,
-                    Email = userName,// User.Identity.GetUserName(),
+                    Email = _userName,
+                    //Email = userName,// User.Identity.GetUserName(),
                     CreatedUtc = DateTimeOffset.Now
                 };
 

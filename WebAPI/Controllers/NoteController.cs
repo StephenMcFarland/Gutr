@@ -24,20 +24,20 @@ namespace WebAPI.Controllers
         {
             NoteService noteService = CreateNoteService();
             var note = noteService.GetNoteById(id);
-            return Ok();
+            return Ok(note);
         }
 
-        public IHttpActionResult Post(NoteCreate note, string userName)
+        public IHttpActionResult Post(NoteCreate note)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateNoteService();
 
-            if (!service.CreateNote(note, userName))
+            if (!service.CreateNote(note))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(note);
         }
 
         public IHttpActionResult Put(NoteEdit note)
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
             if (!service.UpdateNote(note))
                 return InternalServerError();
 
-            return Ok();
+            return Ok(note);
         }
 
         public IHttpActionResult Delete(int id)
@@ -66,7 +66,8 @@ namespace WebAPI.Controllers
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new NoteService(userId);
+            var username = User.Identity.GetUserName();
+            var noteService = new NoteService(userId, username);
             return noteService;
         }
     }
