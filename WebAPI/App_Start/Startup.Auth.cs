@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using WebAPI.Providers;
 using WebAPI.Models;
+using Gutr.Data;
 
 namespace WebAPI
 {
