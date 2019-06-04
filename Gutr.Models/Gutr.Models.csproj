@@ -58,6 +58,7 @@
     <Compile Include="FavoriteCreate.cs" />
     <Compile Include="FavoriteEdit.cs" />
     <Compile Include="FavoriteListItem.cs" />
+    <Compile Include="MultiData.cs" />
     <Compile Include="NoteCreate.cs" />
     <Compile Include="NoteDetail.cs" />
     <Compile Include="NoteEdit.cs" />

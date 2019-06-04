@@ -9,18 +9,21 @@
 
 <h2>@Html.DisplayFor(model => model.UserName)'s Profile</h2>
 
+
 <div>
     <img class="img-profile" src="@Html.DisplayFor(model => model.ImageUrl)" alt="Profile Image" />
 </div>
 
 <h4>
     Name:
-    @Html.DisplayFor(model => model.Name)
+    @Html.DisplayFor(model => model.Name)<br />
+    
 </h4>
 
 <h4>
     Bio:
-    @Html.DisplayFor(model => model.Summary)
+    @Html.DisplayFor(model => model.Summary)<br/>
+    
 </h4>
 
 

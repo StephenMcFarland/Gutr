@@ -13,6 +13,7 @@ namespace Gutr.Controllers
     {
         // GET: Note
         [Authorize]
+        //[ActionName("myPosts")]
         public ActionResult Index()
         {
             var service = CreateNoteService();
@@ -35,6 +36,7 @@ namespace Gutr.Controllers
 
         // GET: Note
         [Authorize]
+        //[ActionName("posts")]
         public ActionResult AllPosts()
         {
             var service = CreateNoteService();
@@ -48,6 +50,7 @@ namespace Gutr.Controllers
 
         // GET: Favorites
         [Authorize]
+        //[ActionName("favorites")]
         public ActionResult AllFavorites()
         {
             var service = CreateNoteService();
@@ -59,6 +62,7 @@ namespace Gutr.Controllers
 
         // GET: My Favorites
         [Authorize]
+        //[ActionName("favorited")]
         public ActionResult MyFavorites()
         {
             var service = CreateFavoriteService();
@@ -69,6 +73,7 @@ namespace Gutr.Controllers
         }
 
         // GET
+        //[ActionName("newPost")]
         public ActionResult Create()
         {
             return View();
@@ -76,6 +81,7 @@ namespace Gutr.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //[ActionName("newPost")]
         public ActionResult Create(NoteCreate model)
         {
             if (!ModelState.IsValid) return View(model);
